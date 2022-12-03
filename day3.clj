@@ -1,6 +1,6 @@
 (ns org.thepletch.aoc)
-(require '[org.thepletch.aoc.utils :as aoc])
 (require '[clojure.set :as set])
+(require '[org.thepletch.aoc.utils :as aoc])
 
 ; gets the single character appearing in both halves of the string.
 ; assumes there's only one such character.
