@@ -1,4 +1,6 @@
-(require '[clojure.string :as str])
+(ns org.thepletch.aoc)
+(require '[org.thepletch.aoc.utils :as aoc])
+
 (def scoremap {"A X" 3   ; 3 + 0
                "A Y" 4   ; 1 + 3
                "A Z" 8   ; 2 + 6
@@ -8,6 +10,5 @@
                "C X" 2   ; 2 + 0
                "C Y" 6   ; 3 + 3
                "C Z" 7}) ; 1 + 6
-(println (reduce + (map (fn [match] (get scoremap match))
-                        (str/split (slurp (first *command-line-args*))
-                                   #"\n"))))
+(println (aoc/linesum (first *command-line-args*)
+         (fn [match] (get scoremap match))))

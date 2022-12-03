@@ -1,4 +1,5 @@
-(require '[clojure.java.io :as io])
+(ns org.thepletch.aoc)
+(require '[org.thepletch.aoc.utils :as aoc])
 (require '[clojure.set :as set])
 
 ; gets the single character appearing in both halves of the string.
@@ -18,6 +19,5 @@
       (>= charindex 97) (- charindex 96) ; a-z is indices 97-122
       :else (- charindex 38))))          ; A-Z is indices 65-90
 
-(with-open [rdr (io/reader (first *command-line-args*))]
-  (println (reduce + (map (fn [line] (priority (get-doubled-char line)))
-                          (line-seq rdr)))))
+(println (aoc/linesum (first *command-line-args*)
+                      (fn [line] (priority (get-doubled-char line)))))
